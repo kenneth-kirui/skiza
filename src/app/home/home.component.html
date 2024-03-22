@@ -1,0 +1,50 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>home</title>
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="left-side">
+        <img src="assets/logo.png" alt="Logo" />
+      </div>
+      <a href="#" class="login-btn">Login</a>
+    </div>
+    <div class="header">
+      <div class="skizalogo">
+        <img src="assets/skiza.jpeg" alt="" srcset="" />
+      </div>
+      <div class="description">
+        <h1>Entertain Your Calls with Skiza Tunes!</h1>
+        <p>
+          Transform your caller experience with our extensive collection of
+          Skiza tunes. Whether you're looking for the latest hits, classic
+          melodies, or personalized tunes, we have something for everyone.
+          Elevate your caller's mood, express your personality, and stand out
+          from the crowd with Skiza. Don't miss out on the chance to make every
+          call a memorable experience. Get your Skiza tune today!
+        </p>
+      </div>
+    </div>
+    <div class="content">
+      <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search Skiza tune..." />
+      </div>
+      <div class="card-container" >
+        <div class="card" *ngFor="let tune of skiza">
+          <video autoplay width="300" height="200" controls>
+            <source [src]="tune.file_path" type="video /mpeg"/>
+            <source [src]="tune.file_path" type="video /wav"/>
+            Your browser does not support the video tag.
+          </video>
+          <p>{{ tune.name }}</p>
+          <button class="action-btn" [value]="tune.code" (click)="openDialer(tune.code)">Action</button>
+        </div>        
+      </div>
+    </div>
+    <div class="footer">
+      &copy; 2024 Cross Gate solutions. All rights reserved.
+    </div>
+  </body>
+</html>
